@@ -1,1 +1,106 @@
+/* =========================
+   BASE STYLE (MOBILE FIRST)
+   ========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #dedede;
+  margin: 0;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 20px;
+}
+
+figure {
+  margin: 0;
+  padding: 15px;
+  background: white;
+  border: 2px solid #ccc;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* =========================
+   TABLET ≥ 772px
+   ========================= */
+
+@media (min-width: 772px) {
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* hình tròn */
+  figure {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* hình cuối chiếm 2 cột */
+  figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* =========================
+   LARGE SCREEN ≥ 992px
+   ========================= */
+
+@media (min-width: 992px) {
+
+  /* mỗi hình thứ 3 chiếm 2 cột */
+  figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+
+  /* bỏ bo tròn */
+  figure {
+    border-radius: 0;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background: #111;
+    color: #f5f5a0;
+  }
+
+  figure {
+    background: #222;
+    border-color: black;
+    color: #f5f5a0;
+  }
+}
 
